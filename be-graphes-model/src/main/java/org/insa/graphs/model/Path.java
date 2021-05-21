@@ -35,7 +35,11 @@ public class Path {
             throws IllegalArgumentException {
         List<Arc> arcs = new ArrayList<Arc>();
         // TODO:
-        for (int i =0; i < nodes.size(); i++) {
+        //Exception : chemin d'un seul node
+        if (nodes.size() == 1) {
+            return new Path(graph, nodes.get(0));
+        }
+        for (int i =0; i < nodes.size() - 1; i++) {
         	Arc fastest=null;  	
         	for (Arc arc : nodes.get(i).getSuccessors()) {
         		if (arc.getDestination().getId() == nodes.get(i+1).getId()) {
@@ -72,7 +76,12 @@ public class Path {
             throws IllegalArgumentException {
         List<Arc> arcs = new ArrayList<Arc>();
         // TODO:
-        for (int i =0; i < nodes.size(); i++) {
+        //Exception : chemin d'un seul node
+        if (nodes.size() == 1) {
+            return new Path(graph, nodes.get(0));
+        }
+
+        for (int i =0; i < nodes.size() - 1; i++) {
         	Arc shortest=null;  	
         	for (Arc arc : nodes.get(i).getSuccessors()) {
         		if (arc.getDestination().getId() == nodes.get(i+1).getId()) {
@@ -241,7 +250,7 @@ public class Path {
     		return false;
     	}
     	
-    	for (int i = 0; i < this.arcs.size(); i++) {
+    	for (int i = 0; i < this.arcs.size() - 1; i++) {
     		if (this.arcs.get(i).getDestination().getId() != this.arcs.get(i+1).getOrigin().getId()) {
     			return false;
     		}
@@ -300,7 +309,7 @@ public class Path {
     		time += this.arcs.get(i).getMinimumTravelTime();
     	}
 
-        return 0;
+        return time;
     }
 
 }
