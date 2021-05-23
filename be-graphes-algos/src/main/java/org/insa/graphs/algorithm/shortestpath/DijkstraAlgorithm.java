@@ -83,7 +83,7 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
         Label dest = labels.get(data.getDestination());
         //Cas d'absence de plus court chemin
         if(dest.getFather() == null) {
-        	solution = new ShortestPathSolution(data, AbstractSolution.Status.INFEASIBLE, null);
+        	solution = new ShortestPathSolution(data, AbstractSolution.Status.INFEASIBLE);
         }else {//Creation de la liste des arcs
         	ArrayList<Arc> whole_path = new ArrayList<Arc>();
         	Arc path = dest.getFather();
