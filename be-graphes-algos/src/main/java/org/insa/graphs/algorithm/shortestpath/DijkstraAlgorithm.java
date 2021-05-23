@@ -18,6 +18,11 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
     public DijkstraAlgorithm(ShortestPathData data) {
         super(data);
     }
+    public Label init(Node node) {
+    	Label label = new Label(node);
+    	return label;
+
+    }
     
     @Override
     protected ShortestPathSolution doRun() {
@@ -33,7 +38,7 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
         
         //initialisation de la map de labels
         for (Node node : graph.getNodes()) {
-        	Label label = new Label(node);
+        	Label label = this.init(node);
         	labels.put(node, label);
         }
         
