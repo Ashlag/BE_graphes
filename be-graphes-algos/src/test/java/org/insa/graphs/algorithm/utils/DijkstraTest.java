@@ -151,7 +151,7 @@ public class DijkstraTest	{
 	//TIME TESTS
 	//---------------------------------
 	
-	//Shortest path length tests, Dijkstra vs BF, condition all roads allowed
+	//Fastest path time tests, Dijkstra vs BF, condition all roads allowed
 		@Test
 		public void Time10kmAllRoads() {
 			int from = 617255;
@@ -166,7 +166,7 @@ public class DijkstraTest	{
 			ShortestPathSolution solutionBF = BellmanFord.run();
 			
 			//Comparing the resulting lengths		
-			assertEquals(solutionDijkstra.getPath().getLength(), solutionBF.getPath().getLength(), 0.001);		
+			assertEquals(solutionDijkstra.getPath().getMinimumTravelTime(), solutionBF.getPath().getMinimumTravelTime(), 0.001);		
 		}
 		
 		
@@ -184,7 +184,7 @@ public class DijkstraTest	{
 			ShortestPathSolution solutionBF = BellmanFord.run();
 			
 			//Comparing the resulting lengths		
-			assertEquals(solutionDijkstra.getPath().getLength(), solutionBF.getPath().getLength(), 0.001);		
+			assertEquals(solutionDijkstra.getPath().getMinimumTravelTime(), solutionBF.getPath().getMinimumTravelTime(), 0.001);		
 		}
 		
 		@Test
@@ -201,10 +201,10 @@ public class DijkstraTest	{
 			ShortestPathSolution solutionBF = BellmanFord.run();
 			
 			//Comparing the resulting lengths		
-			assertEquals(solutionDijkstra.getPath().getLength(), solutionBF.getPath().getLength(), 0.001);		
+			assertEquals(solutionDijkstra.getPath().getMinimumTravelTime(), solutionBF.getPath().getMinimumTravelTime(), 0.001);		
 		}
 		
-		//Shortest path length tests, Dijkstra vs BF, condition car only
+		//Fastest path time tests, Dijkstra vs BF, condition car only
 		@Test
 		public void Time10kmCarRoads() {
 			int from = 617255;
@@ -219,7 +219,7 @@ public class DijkstraTest	{
 			ShortestPathSolution solutionBF = BellmanFord.run();
 			
 			//Comparing the resulting lengths		
-			assertEquals(solutionDijkstra.getPath().getLength(), solutionBF.getPath().getLength(), 0.001);		
+			assertEquals(solutionDijkstra.getPath().getMinimumTravelTime(), solutionBF.getPath().getMinimumTravelTime(), 0.001);		
 		}
 		
 		
@@ -237,7 +237,7 @@ public class DijkstraTest	{
 			ShortestPathSolution solutionBF = BellmanFord.run();
 			
 			//Comparing the resulting lengths		
-			assertEquals(solutionDijkstra.getPath().getLength(), solutionBF.getPath().getLength(), 0.001);		
+			assertEquals(solutionDijkstra.getPath().getMinimumTravelTime(), solutionBF.getPath().getMinimumTravelTime(), 0.001);		
 		}
 		
 		@Test
@@ -254,10 +254,10 @@ public class DijkstraTest	{
 			ShortestPathSolution solutionBF = BellmanFord.run();
 			
 			//Comparing the resulting lengths		
-			assertEquals(solutionDijkstra.getPath().getLength(), solutionBF.getPath().getLength(), 0.001);		
+			assertEquals(solutionDijkstra.getPath().getMinimumTravelTime(), solutionBF.getPath().getMinimumTravelTime(), 0.001);		
 		}
 		
-		//Shortest path length tests, Dijkstra vs BF, condition pedestrians
+		//Fastest path time tests, Dijkstra vs BF, condition pedestrians
 		@Test
 		public void Time10kmPedestrians() {
 			int from = 617255;
@@ -272,10 +272,9 @@ public class DijkstraTest	{
 			ShortestPathSolution solutionBF = BellmanFord.run();
 			
 			//Comparing the resulting lengths		
-			assertEquals(solutionDijkstra.getPath().getLength(), solutionBF.getPath().getLength(), 0.001);		
+			assertEquals(solutionDijkstra.getPath().getMinimumTravelTime(), solutionBF.getPath().getMinimumTravelTime(), 0.001);		
 		}
-		
-		
+				
 		@Test
 		public void Time50kmPedestrians() {
 			int from = 20277;
@@ -290,7 +289,7 @@ public class DijkstraTest	{
 			ShortestPathSolution solutionBF = BellmanFord.run();
 			
 			//Comparing the resulting lengths		
-			assertEquals(solutionDijkstra.getPath().getLength(), solutionBF.getPath().getLength(), 0.001);		
+			assertEquals(solutionDijkstra.getPath().getMinimumTravelTime(), solutionBF.getPath().getMinimumTravelTime(), 0.001);		
 		}
 		
 		@Test
@@ -307,7 +306,7 @@ public class DijkstraTest	{
 			ShortestPathSolution solutionBF = BellmanFord.run();
 			
 			//Comparing the resulting lengths		
-			assertEquals(solutionDijkstra.getPath().getLength(), solutionBF.getPath().getLength(), 0.001);		
+			assertEquals(solutionDijkstra.getPath().getMinimumTravelTime(), solutionBF.getPath().getMinimumTravelTime(), 0.001);		
 		}
 	
 		//
