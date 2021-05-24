@@ -70,6 +70,7 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
             	Label son = labels.get(arc.getDestination());
             	if (!son.isMarked()) {
                 	//System.out.println("Pas marqué");
+            		 
             		if (son.getCost() > nearest.getCost() + (mode == AbstractInputData.Mode.LENGTH ? arc.getLength() : arc.getMinimumTravelTime())) {
             			son.setCost(nearest.getCost() + (mode == AbstractInputData.Mode.LENGTH ? arc.getLength() : arc.getMinimumTravelTime()));
                     	//System.out.println("length");

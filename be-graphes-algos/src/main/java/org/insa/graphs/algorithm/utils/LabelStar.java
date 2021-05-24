@@ -27,19 +27,25 @@ public class LabelStar extends Label{
 		return this.estimated_cost;
 	}
 	
-	@Override
-	
+	@Override	
 	public double getTotalCost() {
 		return this.estimated_cost+this.getCost();
 	}
-
+	
+	//@Override
 	public int compareTo(LabelStar other) {
-		int value = (int) (this.getTotalCost() - other.getTotalCost());
-		if (value == 0) {
-			return (int) (this.getEstimatedCost() - other.getEstimatedCost());
-		}else {
-			return value;
-		}
+		//if (other instanceof LabelStar) {
+			//LabelStar labelStar = (LabelStar)other;
+			int value = Double.compare(this.getTotalCost(), other.getTotalCost());
+			if (value == 0) {
+				return Double.compare(this.getEstimatedCost(), other.getEstimatedCost());
+			}else {
+				return value;
+			}
+
+	//	} else {
+	//		return super.compareTo(other);
+	//	}
 	}
 	
 }
