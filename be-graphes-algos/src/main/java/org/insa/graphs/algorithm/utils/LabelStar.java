@@ -2,6 +2,7 @@ package org.insa.graphs.algorithm.utils;
 
 import org.insa.graphs.algorithm.AbstractInputData;
 import org.insa.graphs.algorithm.shortestpath.ShortestPathData;
+import org.insa.graphs.model.GraphStatistics;
 import org.insa.graphs.model.Node;
 
 public class LabelStar extends Label{
@@ -15,8 +16,8 @@ public class LabelStar extends Label{
 		if (data.getMode().equals(AbstractInputData.Mode.LENGTH)) {
 			this.estimated_cost = destination.getPoint().distanceTo(sommet.getPoint());
 		} else {
-			this.estimated_cost = destination.getPoint().distanceTo(sommet.getPoint())/data.getGraph()
-						.getGraphInformation().getMaximumSpeed()*3.6;
+			double maxSpeed = data.getMaximumSpeed() == GraphStatistics.NO_MAXIMUM_SPEED ? data.getGraph().getGraphInformation().getMaximumSpeed() : data.getMaximumSpeed();
+			this.estimated_cost = destination.getPoint().distanceTo(sommet.getPoint()) / maxSpeed * 3.6;
 		}
 	}
 	
