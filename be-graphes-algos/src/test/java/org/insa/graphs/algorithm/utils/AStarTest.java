@@ -481,12 +481,10 @@ public class AStarTest	{
 			assertTrue(solutionDijkstraAB.getPath().getLength() + solutionDijkstraBC.getPath().getLength() >= solutionDijkstraAC.getPath().getLength());		
 		}
 		
-		/*ATTENTION : pour ce test, ne pas être idiot... Il ne faut pas oublier que sur une vraie carte, il y a des routes à sens unique. 
-		*Donc si le chemin les choisit, forcément que ça ne va pas marcher. Du coup, temporairement désactivés le temps de trouver un chemin pertinent.
 		@Test
 		public void ReversePath() {
-			int from = 239566;
-			int to = 5201;
+			int from = 143627;
+			int to = 143619;
 						
 			//Creation Chemin
 			ShortestPathData data = new ShortestPathData(graphBig, graphBig.get(from), graphBig.get(to), ArcInspectorFactory.getAllFilters().get(0));
@@ -503,7 +501,7 @@ public class AStarTest	{
 			//Comparing the resulting lengths		
 			assertEquals(solutionDijkstra.getPath().getLength(), solutionDijkstraSub.getPath().getLength(), 0.001);		
 		}
-		*/
+		
 		//------------------------------
 		//TIME
 		//------------------------------
@@ -559,13 +557,11 @@ public class AStarTest	{
 			assertTrue(solutionDijkstraAB.getPath().getMinimumTravelTime() + solutionDijkstraBC.getPath().getMinimumTravelTime() >= solutionDijkstraAC.getPath().getMinimumTravelTime());		
 		}
 		
-		/*ATTENTION : pour ce test, ne pas être idiot... Il ne faut pas oublier que sur une vraie carte, il y a des routes à sens unique. 
-		*Donc si le chemin les choisit, forcément que ça ne va pas marcher. Du coup, temporairement désactivés le temps de trouver un chemin pertinent.
 
 		@Test
 		public void ReversePathTime() {
-			int from = 239566;
-			int to = 5201;
+			int from = 143627;
+			int to = 143619;
 						
 			//Creation Chemin
 			ShortestPathData data = new ShortestPathData(graphBig, graphBig.get(from), graphBig.get(to), ArcInspectorFactory.getAllFilters().get(2));
@@ -582,8 +578,7 @@ public class AStarTest	{
 			//Comparing the resulting lengths		
 			assertEquals(solutionDijkstra.getPath().getMinimumTravelTime(), solutionDijkstraSub.getPath().getMinimumTravelTime(), 0.001);		
 		}
-		*/
-		
+	
 		//------------------------------
 		//MIXED
 		//------------------------------

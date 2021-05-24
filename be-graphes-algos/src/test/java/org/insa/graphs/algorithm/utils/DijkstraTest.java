@@ -319,6 +319,7 @@ public class DijkstraTest	{
 			assertEquals(solutionDijkstra.getPath().getMinimumTravelTime(), solutionBF.getPath().getMinimumTravelTime(), 0.001);		
 		}
 		*/
+		
 		//--------------------------------
 		//Infeasible Tests
 		//--------------------------------
