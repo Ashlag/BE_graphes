@@ -22,9 +22,24 @@ public class LabelStar extends Label{
 	}
 	
 	
+	
+	private double getEstimatedCost() {
+		return this.estimated_cost;
+	}
+	
 	@Override
+	
 	public double getTotalCost() {
 		return this.estimated_cost+this.getCost();
 	}
-		
+
+	public int compareTo(LabelStar other) {
+		int value = (int) (this.getTotalCost() - other.getTotalCost());
+		if (value == 0) {
+			return (int) (this.getEstimatedCost() - other.getEstimatedCost());
+		}else {
+			return value;
+		}
+	}
+	
 }
