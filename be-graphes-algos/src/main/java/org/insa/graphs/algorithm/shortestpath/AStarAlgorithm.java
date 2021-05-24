@@ -12,6 +12,7 @@ public class AStarAlgorithm extends DijkstraAlgorithm {
     
     @Override
     public Label init(Node node) {
+    	//Suffit à changer le comportement, c'est pas beau ? 
     	return new LabelStar(node, this.getInputData());
     }
 }

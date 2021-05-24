@@ -28,6 +28,7 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
     protected ShortestPathSolution doRun() {
         final ShortestPathData data = getInputData();
         ShortestPathSolution solution = null;
+        
         // TODO:
         //get graph data
         Graph graph = data.getGraph();
@@ -47,6 +48,8 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
         heap.findMin().setCost(0.);
         AbstractInputData.Mode mode = data.getMode();
         
+        
+        //Execution de l'algo
         while (!heap.isEmpty()) {
             Label nearest = heap.deleteMin();
             nearest.setMarked();
@@ -58,24 +61,25 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
             //System.out.println("While");
             for (Arc arc: nearest.getSommet().getSuccessors()) {
             	
-            	if(data.isAllowed(arc)) {
-            		notifyNodeReached(arc.getDestination());
-                	//System.out.println("for");
-                	Label son = labels.get(arc.getDestination());
-                	if (!son.isMarked()) {
-                    	//System.out.println("Pas marqué");
-                		if (son.getCost() > nearest.getCost() + (mode == AbstractInputData.Mode.LENGTH ? arc.getLength() : arc.getMinimumTravelTime())) {
-                			son.setCost(nearest.getCost() + (mode == AbstractInputData.Mode.LENGTH ? arc.getLength() : arc.getMinimumTravelTime()));
-                        	//System.out.println("length");
-                			if(son.getFather() == null) {
-                				heap.insert(son);
-                            	//System.out.println("insert heap");
-                			}
-                			son.setFather(arc);
-                		}
-                	}	
+            	if(!data.isAllowed(arc)) {
+            		continue;
             	}
             	
+            	notifyNodeReached(arc.getDestination());
+            	//System.out.println("for");
+            	Label son = labels.get(arc.getDestination());
+            	if (!son.isMarked()) {
+                	//System.out.println("Pas marqué");
+            		if (son.getCost() > nearest.getCost() + (mode == AbstractInputData.Mode.LENGTH ? arc.getLength() : arc.getMinimumTravelTime())) {
+            			son.setCost(nearest.getCost() + (mode == AbstractInputData.Mode.LENGTH ? arc.getLength() : arc.getMinimumTravelTime()));
+                    	//System.out.println("length");
+            			if(son.getFather() == null) {
+            				heap.insert(son);
+                        	//System.out.println("insert heap");
+            			}
+            			son.setFather(arc);
+            		}
+            	}
             }
             
         }
