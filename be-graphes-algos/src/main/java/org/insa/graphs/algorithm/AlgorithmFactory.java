@@ -11,6 +11,8 @@ import org.insa.graphs.algorithm.shortestpath.AStarAlgorithm;
 import org.insa.graphs.algorithm.shortestpath.BellmanFordAlgorithm;
 import org.insa.graphs.algorithm.shortestpath.DijkstraAlgorithm;
 import org.insa.graphs.algorithm.shortestpath.ShortestPathAlgorithm;
+import org.insa.graphs.algorithm.shortestpath.VeloStarDetail;
+import org.insa.graphs.algorithm.shortestpath.VeloStarUnique;
 import org.insa.graphs.algorithm.weakconnectivity.WeaklyConnectedComponentsAlgorithm;
 
 /**
@@ -33,7 +35,11 @@ public class AlgorithmFactory {
         registerAlgorithm(ShortestPathAlgorithm.class, "Dijkstra", DijkstraAlgorithm.class);
         registerAlgorithm(ShortestPathAlgorithm.class, "A*", AStarAlgorithm.class);
 
+
+
         // Register your algorithms here:
+        registerAlgorithm(ShortestPathAlgorithm.class, "VeloStarUnique", VeloStarUnique.class);
+        registerAlgorithm(ShortestPathAlgorithm.class, "VeloStarDetail", VeloStarDetail.class);
         // registerAlgorithm(CarPoolingAlgorithm.class, "My Awesome Algorithm",
         // MyCarPoolingAlgorithm.class);
     }

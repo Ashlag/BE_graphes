@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 
 import org.insa.graphs.algorithm.AbstractInputData;
+import org.insa.graphs.algorithm.AbstractInputData.Mode;
 import org.insa.graphs.algorithm.AbstractSolution;
 import org.insa.graphs.algorithm.utils.BinaryHeap;
 import org.insa.graphs.algorithm.utils.Label;
@@ -70,9 +71,9 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
             	Label son = labels.get(arc.getDestination());
             	if (!son.isMarked()) {
                 	//System.out.println("Pas marqué");
-            		 
-            		if (son.getCost() > nearest.getCost() + (mode == AbstractInputData.Mode.LENGTH ? arc.getLength() : arc.getMinimumTravelTime())) {
-            			son.setCost(nearest.getCost() + (mode == AbstractInputData.Mode.LENGTH ? arc.getLength() : arc.getMinimumTravelTime()));
+            		double evaluate = this.Evaluate(nearest, arc, mode);
+            		if (son.getCost() > evaluate) {
+            			son.setCost(evaluate);
                     	//System.out.println("length");
             			if(son.getFather() == null) {
             				heap.insert(son);
@@ -106,5 +107,9 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
         
         return solution;
     }
+    
+	protected double Evaluate(Label nearest, Arc arc, Mode mode) {
+		return nearest.getCost() + (mode == AbstractInputData.Mode.LENGTH ? arc.getLength() : arc.getMinimumTravelTime());
+	}
 
 }
