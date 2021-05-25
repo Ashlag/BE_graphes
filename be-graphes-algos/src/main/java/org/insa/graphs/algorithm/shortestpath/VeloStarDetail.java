@@ -3,11 +3,7 @@ package org.insa.graphs.algorithm.shortestpath;
 import org.insa.graphs.algorithm.AbstractInputData;
 import org.insa.graphs.algorithm.AbstractInputData.Mode;
 import org.insa.graphs.algorithm.utils.Label;
-import org.insa.graphs.algorithm.utils.LabelStar;
-import org.insa.graphs.model.AccessRestrictions.AccessMode;
-import org.insa.graphs.model.AccessRestrictions.AccessRestriction;
 import org.insa.graphs.model.Arc;
-import org.insa.graphs.model.Node;
 import org.insa.graphs.model.RoadInformation.RoadType;
 
 public class VeloStarDetail extends AStarAlgorithm {
