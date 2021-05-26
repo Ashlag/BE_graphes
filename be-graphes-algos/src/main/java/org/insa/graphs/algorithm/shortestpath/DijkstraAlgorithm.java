@@ -47,7 +47,6 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
         //insertion de l'origine du graphe, initialisation de son coût
         heap.insert(labels.get(data.getOrigin()));
         heap.findMin().setCost(0.);
-        AbstractInputData.Mode mode = data.getMode();
         
         
         //Execution de l'algo
@@ -71,7 +70,7 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
             	Label son = labels.get(arc.getDestination());
             	if (!son.isMarked()) {
                 	//System.out.println("Pas marqué");
-            		double evaluate = this.Evaluate(nearest, arc, mode);
+            		double evaluate = this.Evaluate(nearest, arc, data);
             		if (son.getCost() > evaluate) {
             			son.setCost(evaluate);
                     	//System.out.println("length");
@@ -108,8 +107,8 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
         return solution;
     }
     
-	protected double Evaluate(Label nearest, Arc arc, Mode mode) {
-		return nearest.getCost() + (mode == AbstractInputData.Mode.LENGTH ? arc.getLength() : arc.getMinimumTravelTime());
+	protected double Evaluate(Label nearest, Arc arc, ShortestPathData data) {
+		return nearest.getCost() + data.getCost(arc);
 	}
 
 }

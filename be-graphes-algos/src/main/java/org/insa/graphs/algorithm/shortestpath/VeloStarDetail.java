@@ -13,7 +13,7 @@ public class VeloStarDetail extends AStarAlgorithm {
     }
     
     @Override
-	protected double Evaluate(Label nearest, Arc arc, Mode mode) {
+	protected double Evaluate(Label nearest, Arc arc, ShortestPathData data) {
     	RoadType type = arc.getRoadInformation().getType();
 
     	double DANGER = 1;
@@ -66,7 +66,7 @@ public class VeloStarDetail extends AStarAlgorithm {
 	    	default:
 	    		DANGER = 5;
     	}
-    	return nearest.getCost() + DANGER * (mode == AbstractInputData.Mode.LENGTH ? arc.getLength() : arc.getMinimumTravelTime());
+    	return nearest.getCost() + DANGER * data.getCost(arc);
 	}
 } 
 

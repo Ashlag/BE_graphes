@@ -16,11 +16,11 @@ public class VeloStarUnique extends AStarAlgorithm {
     }
     
     @Override
-	protected double Evaluate(Label nearest, Arc arc, Mode mode) {
+	protected double Evaluate(Label nearest, Arc arc, ShortestPathData data) {
     	if (arc.getRoadInformation().getAccessRestrictions().isAllowedFor(AccessMode.MOTORCAR, AccessRestriction.ALLOWED)) {
     		double DANGER = 5;
-    		return nearest.getCost() + DANGER * (mode == AbstractInputData.Mode.LENGTH ? arc.getLength() : arc.getMinimumTravelTime());
+    		return nearest.getCost() + DANGER * data.getCost(arc);
     	}
-		return nearest.getCost() + (mode == AbstractInputData.Mode.LENGTH ? arc.getLength() : arc.getMinimumTravelTime());
+		return nearest.getCost() + data.getCost(arc);
 	}
 }
