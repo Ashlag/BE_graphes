@@ -298,7 +298,7 @@ public class AStarTest	{
 			//Comparing the resulting lengths		
 			assertEquals(solutionDijkstra.getPath().getMinimumTravelTime(), solutionBF.getPath().getMinimumTravelTime(), 0.001);		
 		}
-		/*
+		
 		@Test
 		public void Time200kmPedestrians() {
 			int from = 140779;
@@ -315,7 +315,7 @@ public class AStarTest	{
 			//Comparing the resulting lengths		
 			assertEquals(solutionDijkstra.getPath().getMinimumTravelTime(), solutionBF.getPath().getMinimumTravelTime(), 0.001);		
 		}
-		*/
+		
 		//--------------------------------
 		//Infeasible Tests
 		//--------------------------------

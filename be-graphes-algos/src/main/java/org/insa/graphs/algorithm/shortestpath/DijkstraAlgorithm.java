@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-import org.insa.graphs.algorithm.AbstractInputData;
-import org.insa.graphs.algorithm.AbstractInputData.Mode;
 import org.insa.graphs.algorithm.AbstractSolution;
 import org.insa.graphs.algorithm.utils.BinaryHeap;
 import org.insa.graphs.algorithm.utils.Label;
@@ -72,12 +70,13 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
                 	//System.out.println("Pas marqué");
             		double evaluate = this.Evaluate(nearest, arc, data);
             		if (son.getCost() > evaluate) {
-            			son.setCost(evaluate);
                     	//System.out.println("length");
-            			if(son.getFather() == null) {
-            				heap.insert(son);
+            			if(son.getFather() != null) {
+            				heap.remove(son);
                         	//System.out.println("insert heap");
             			}
+            			son.setCost(evaluate);
+            			heap.insert(son);
             			son.setFather(arc);
             		}
             	}
@@ -88,7 +87,7 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
         Label dest = labels.get(data.getDestination());
         //Cas d'absence de plus court chemin
         if(dest.getFather() == null) {
-        	solution = new ShortestPathSolution(data, AbstractSolution.Status.INFEASIBLE);
+        	solution = new ShortestPathSolution(data, AbstractSolution.Status.INFEASIBLE, null);
         }else {//Creation de la liste des arcs
         	ArrayList<Arc> whole_path = new ArrayList<Arc>();
         	Arc path = dest.getFather();
