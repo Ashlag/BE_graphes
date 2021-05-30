@@ -31,6 +31,7 @@ public class DijkstraTest	{
 		String mapNameBig = "/home/kronk/Documents/INSA/3MIC/BE_Graphes_Maps/midi-pyrenees.mapgr";
 		String mapNameSmol = "/home/kronk/Documents/INSA/3MIC/BE_Graphes_Maps/haute-garonne.mapgr";
 		String mapNameIsl = "/home/kronk/Documents/INSA/3MIC/BE_Graphes_Maps/french-polynesia.mapgr";
+		
 		//Create a graph reader
 		GraphReader readerBig = new BinaryGraphReader(new DataInputStream(new BufferedInputStream(new FileInputStream(mapNameBig))));
 		GraphReader readerSmol = new BinaryGraphReader(new DataInputStream(new BufferedInputStream(new FileInputStream(mapNameSmol))));
@@ -40,6 +41,11 @@ public class DijkstraTest	{
 		graphBig = readerBig.read();
 		graphSmol = readerSmol.read();
 		graphIsl = readerIsl.read();
+		
+		//closing the readers
+		readerBig.close();
+		readerSmol.close();
+		readerIsl.close();
 
 	}
 	
