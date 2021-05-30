@@ -29,9 +29,9 @@ public class AStarTest	{
 	public void initAll() throws Exception	{
 		
 		//Using Midi-Pyrenees, Haute-Garonne and Polynesia maps for tests
-		String mapNameBig = "/home/kronk/Documents/INSA/3MIC/BE_Graphes_Maps/midi-pyrenees.mapgr";
-		String mapNameSmol = "/home/kronk/Documents/INSA/3MIC/BE_Graphes_Maps/haute-garonne.mapgr";
-		String mapNameIsl = "/home/kronk/Documents/INSA/3MIC/BE_Graphes_Maps/french-polynesia.mapgr";
+		String mapNameBig = "D:\\\\vince\\\\Documents\\\\INSA TOULOUSE\\\\3MIC\\\\S6\\\\BE_Graphes\\\\Maps\\\\midi-pyrenees.mapgr";
+		String mapNameSmol = "D:\\\\vince\\\\Documents\\\\INSA TOULOUSE\\\\3MIC\\\\S6\\\\BE_Graphes\\\\Maps\\\\haute-garonne.mapgr";
+		String mapNameIsl = "D:\\vince\\Documents\\INSA TOULOUSE\\3MIC\\S6\\BE_Graphes\\Maps\\french-polynesia.mapgr";
 		//Create a graph reader
 		GraphReader readerBig = new BinaryGraphReader(new DataInputStream(new BufferedInputStream(new FileInputStream(mapNameBig))));
 		GraphReader readerSmol = new BinaryGraphReader(new DataInputStream(new BufferedInputStream(new FileInputStream(mapNameSmol))));
